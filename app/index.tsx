@@ -6,6 +6,7 @@ import { Colors } from "@/constants/Colors";
 import { Ionicons } from "@expo/vector-icons";
 import Google from "@/assets/images/google-logo.svg"
 import Animated, { FadeIn, FadeInDown, FadeInRight } from "react-native-reanimated";
+import SocialLoginButtons  from './components/SocialLoginButtons';
 
 type Props = {};
 
@@ -20,30 +21,7 @@ const WelcomeScreen = (props: Props) => {
       <Animated.Text style={styles.title} entering ={FadeInRight.delay(500).duration(300)}>Welcome Screen</Animated.Text>
       <Animated.Text style={styles.description} entering ={FadeInRight.delay(500).duration(300)}>Demo App</Animated.Text>
  
-<View style={styles.socialLoginWrapper}>
-  <Animated.View entering ={FadeInDown.delay(500).duration(500).springify()} >
-  <Link href={"/signup"} asChild>
-        <TouchableOpacity style={styles.button}>
-          <Ionicons name='mail-outline'
-          size={20}
-          color={Colors.black}/>
-
-          <Text style={styles.btnTxt}>Continue With Email</Text>
-        </TouchableOpacity>
-      </Link>
-  </Animated.View>
-  <Animated.View entering ={FadeInDown.delay(700).duration(500).springify()} >
-
-      <Link href={"/signin"} asChild>
-        <TouchableOpacity style={styles.button}>
-  <Google width={20} height={20} />
-
-          <Text style={styles.btnTxt}>Continue With Google</Text>
-        </TouchableOpacity>
-      </Link>
-       </Animated.View>
-  
-</View>
+      <SocialLoginButtons/>
 
     <Text style={styles.loginTxt}>Already have an account? {" "}
       <Link href={"/signin"} asChild>
@@ -98,25 +76,7 @@ const styles = StyleSheet.create({
     lineHeight: 30,
     marginBottom: 20
   },
-  socialLoginWrapper:{
-    alignSelf: 'stretch'
-  },
-  button:{
-    flexDirection: 'row',
-    padding: 10,
-    borderColor: Colors.gray,
-    borderWidth: StyleSheet.hairlineWidth,
-    borderRadius: 25,
-    marginBottom: 15,
-    alignItems: 'center',
-    justifyContent: 'center',
-    gap: 5
-  },
-  btnTxt:{
-fontSize:14,
-fontWeight: '600',
-color: Colors.black,
-  },
+ 
   loginTxt:{
     marginTop:30,
     fontSize: 14,
