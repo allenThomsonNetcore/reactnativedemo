@@ -4,6 +4,7 @@ import { Link, router, Stack } from 'expo-router'
 import { Ionicons } from '@expo/vector-icons'
 import { Colors } from '@/constants/Colors'
 import InputField from './components/InputField'
+import SocialLoginButtons from './components/SocialLoginButtons'
 
 
 type Props = {}
@@ -43,6 +44,7 @@ const SignUpScreen = (props: Props) => {
       </Text>
      
 <View style={styles.divider}/>
+<SocialLoginButtons emailHref={'/signin'}/>
     </View>
     </>
   )
@@ -96,7 +98,7 @@ divider:{
    borderTopColor: Colors.gray,
    borderTopWidth: StyleSheet.hairlineWidth,
    width: '30%',
-   marginBottom: 20
+   marginBottom: 30
 }
  
 })

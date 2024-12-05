@@ -21,7 +21,7 @@ const WelcomeScreen = (props: Props) => {
       <Animated.Text style={styles.title} entering ={FadeInRight.delay(500).duration(300)}>Welcome Screen</Animated.Text>
       <Animated.Text style={styles.description} entering ={FadeInRight.delay(500).duration(300)}>Demo App</Animated.Text>
  
-      <SocialLoginButtons/>
+      <SocialLoginButtons emailHref={'/signup'}/>
 
     <Text style={styles.loginTxt}>Already have an account? {" "}
       <Link href={"/signin"} asChild>
