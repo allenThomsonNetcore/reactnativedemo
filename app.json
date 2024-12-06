@@ -13,14 +13,30 @@
       "backgroundColor": "#ffffff"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "buildNumber": "<build-number>",
+      "bundleIdentifier": "<bundle-identifier>"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.rnsample.ecom"
+      "package": "com.rnsample.ecom",
+      "allowBackup": true,
+      "googleServicesFile": "/Users/allen.thomson/Desktop/react_native_projects/e_com/copy/app/google-services.json",
+      "intentFilters": [
+        {
+          "action": "VIEW",
+          "autoVerify": true,
+          "data": [
+            {
+              "scheme": "myunifi"
+            }
+          ],
+          "category": ["BROWSABLE", "DEFAULT"]
+        }
+      ]
     },
     "web": {
       "bundler": "metro",
@@ -28,7 +44,83 @@
       "favicon": "./assets/images/favicon.png"
     },
     "plugins": [
-      "expo-router"
+      "expo-router",
+      [
+        "smartech-base-expo-plugin",
+        {
+          "isNewArchEnabled": false,
+          "deepLinkDelay": 3,
+          "android": {
+            "isLogEnabled": true,
+            "SMARTECH_BASE_SDK_VERSION": "3.5.4",
+            "isKotlinProject": true,
+            "backupXMLFiles": "/Users/allen.thomson/Desktop/react_native_projects/e_com/copy/android-support/xml",
+            "smartechMetaData": [
+              {
+                "name": "SMT_APP_ID",
+                "value": "38f37c444a1eab297a163435602886d8"
+              }
+            ],
+            "smartechNudges": {
+              "smartechNudgesEnabled": true,
+              "SMARTECH_NUDGE_VERSTION": "10.2.2",
+              "useEncryption": false,
+              "addTestDevice": true,
+              "isLogEnabled": true,
+              "smartechNudgesMetaData": [
+                {
+                  "name": "HANSEL_APP_ID",
+                  "value": "KMRBYZMQS2XXX1OBID8GFORVH"
+                },
+                {
+                  "name": "HANSEL_APP_KEY",
+                  "value": "ZUAZSYE2JWSVAG4NWSSGDN9F3UODHH2ZCBSBJOPI27GIZEN1AS"
+                }
+              ]
+            }
+          },
+          "ios": {
+            "appId": "<your-smartech-app-id>",
+            "bundleIdentifier": "<your-app-bundle-id>",
+            "groupIdentifier": "<your-app-group-id>",
+            "autoFetchLocation": false,
+            "useAdvID": false,
+            "isLogEnabled": true,
+            "smartechNudges": {
+              "smartechNudgesEnabled": true,
+              "isLogEnabled": true,
+              "addTestDevice": true,
+              "appId": "<your-hansel-app-id>",
+              "appKey": "<your-hansel-app-key>",
+              "testDeviceURLName": "<your-url-name>",
+              "testDeviceURLSchema": "<your-url-schema>"
+            }
+          }
+        }
+      ],
+      [
+        "smartech-push-expo-plugin",
+        {
+          "android": {
+            "SMARTECH_PUSH_SDK_VERSION": "3.5.1",
+            "isKotlinProject": true,
+            "useSmartechFCM": true
+          },
+          "ios": {
+            "groupIdentifier": "<your-app-group-id>",
+            "mode": "development/ production"
+          }
+        }
+      ],
+      [
+        "smartech-appinbox-expo-plugin",
+        {
+          "android": {
+            "SMARTECH_APPINBOX_SDK_VERSION": "3.5.1"
+          }
+        }
+      ],
+      "./withSmartechCustomConfig.js"
     ],
     "experiments": {
       "typedRoutes": true
